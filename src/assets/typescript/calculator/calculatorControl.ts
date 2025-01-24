@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 /* eslint-disable no-new */
-import Operations from './operations.js'
-import Display from './display.js'
-import DateTime from './dateTime.js'
+import DateTime from './dateTime'
+import Display from './display'
+import Operations from './operations'
 
 // eslint-disable-next-line @typescript-eslint/no-extraneous-class
 export default class CalculatorControl {

@@ -1,7 +1,5 @@
-import CalculatorControl from './calculator/calculatorControl.js'
+import CalculatorControl from "./calculator/calculatorControl"
 
 console.log('Starting the project')
 
-const calculate = new CalculatorControl()
-
-console.log(calculate)
+new CalculatorControl()
