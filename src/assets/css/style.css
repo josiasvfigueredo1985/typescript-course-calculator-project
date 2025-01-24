@@ -43,7 +43,6 @@
     flex-direction: column;
     font-family: "Digital", sans-serif;
 
-
 }
 
 #display div {
@@ -152,7 +151,7 @@
     grid-row-end: 6
 }
 
-#acoes #audio-btn {
+#acoes #sound-btn {
     grid-column-start: 4;
     grid-column-end: 4;
     grid-row-start: 1;
