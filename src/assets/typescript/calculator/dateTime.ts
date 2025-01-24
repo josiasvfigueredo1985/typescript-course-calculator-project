@@ -6,6 +6,10 @@ export default class DateTime {
     private readonly timeElement: HTMLDivElement | null = document.querySelector(
       '#datetime time'
     )
+    ,
+    private readonly soundElement: HTMLDivElement | null = document.querySelector(
+      '#datetime #audio'
+    )
   ) {
     this.renderDateTime()
     setInterval(() => {
@@ -43,4 +47,15 @@ export default class DateTime {
       this.timeElement.innerHTML = content
     }
   }
+
+  set soundIcon(mute: boolean) {
+    if (this.soundElement !== null) {
+      if (mute) {
+        this.soundElement.setAttribute('src', '/assets/images/volume-on.svg')
+      } else {
+        this.soundElement.setAttribute('src', '/assets/images/volume-off.svg')
+      }
+    }
+  }
 }
+

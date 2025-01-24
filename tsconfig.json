@@ -4,7 +4,8 @@
   },
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "module": "ESNext", // Specifies the module system to use (CommonJS is common in Node.js)
+    "moduleResolution": "NodeNext",
+    "module": "NodeNext", // Specifies the module system to use (CommonJS is common in Node.js)
     "target": "ESNEXT", // Sets the version of ECMAScript the code should be compatible with (from ES2023)
     "allowJs": true, // Allows JavaScript files to be part of your TypeScript project
     "sourceMap": true, // Generates source map files for easier debugging
@@ -31,6 +32,10 @@
     "noLib": false, // Does not omit default libraries; should generally be false
     "allowUnreachableCode": false, // Raises errors for unreachable code
   },
+  "typeRoots": [
+    "./node_modules/@types",
+    "./src/@types" // Adicione o caminho para suas declarações de tipo
+  ],
   "include": [
     "src/**/*", // Includes all TypeScript files in the src folder for compilation
   ],
