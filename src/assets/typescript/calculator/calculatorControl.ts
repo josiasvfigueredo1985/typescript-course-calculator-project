@@ -34,7 +34,7 @@ export default class CalculatorControl {
       button.addEventListener('click', async (event: Event) => {
         const target = event.target as HTMLButtonElement
         this.stopRender(this.renderInterval)
-        this.playBtnSound(this.isMuted)
+        this.clickSound(this.isMuted)
         switch (target.id) {
           case 'zero':
           case 'um':
@@ -121,10 +121,11 @@ export default class CalculatorControl {
     }
   }
 
-  playBtnSound(mute: boolean): void {
+  clickSound(mute: boolean): void {
     const audio = new Audio(click)
     mute && audio.play()
   }
+
 
   clearAll(): void {
     this.ops.clear()

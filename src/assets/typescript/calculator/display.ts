@@ -1,3 +1,5 @@
+import error from '../../../assets/sounds/error.mp3';
+
 export default class Display {
   private readonly valuesElement: HTMLElement | null;
 
@@ -12,6 +14,11 @@ export default class Display {
     this.content = '0';
   }
 
+  errorSound(): void {
+    const audio = new Audio(error)
+    audio.play()
+  }
+
   get content(): string {
     return this.valuesElement != null ? this.valuesElement.innerHTML : '0';
   }
@@ -21,6 +28,7 @@ export default class Display {
     if (this.valuesElement != null) {
       this.valuesElement.innerHTML =
         value.length > displayLengthLimit ? 'ERROR' : value.replace('.', ',');
+      value.length > displayLengthLimit && this.errorSound()
     }
   }
 }
