@@ -14,7 +14,8 @@ $altura: 600px;
     display: flex;
     align-items: center;
     flex-direction: column;
-    > img {
+
+    >img {
         margin: 20px;
     }
 }
@@ -45,9 +46,11 @@ $altura: 600px;
     display: flex;
     flex-direction: column;
     font-family: "Digital", sans-serif;
+
     div {
         display: flex;
     }
+
     #datetime {
         position: absolute;
         width: 100%;
@@ -55,10 +58,12 @@ $altura: 600px;
         top: 0;
         display: flex;
         justify-content: space-between;
+
         img {
             margin-left: 5px;
         }
     }
+
     #values {
         position: absolute;
         bottom: 0;
@@ -80,6 +85,7 @@ $altura: 600px;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 1fr);
     grid-gap: 10px;
+
     button {
         @include botao.botaoCor(#525252);
         border-radius: 10px;
@@ -87,14 +93,23 @@ $altura: 600px;
         font-size: 32px;
         outline: none;
         cursor: pointer;
+
         &.orange {
             @include botao.botaoCor(#FF760C);
         }
     }
+
     #adicao {
         grid-column-start: 4;
         grid-column-end: 4;
         grid-row-start: 4;
         grid-row-end: 6;
+    }
+
+    #audio-btn {
+        grid-column-start: 4;
+        grid-column-end: 4;
+        grid-row-start: 5;
+        grid-row-end: 5;
     }
 }
