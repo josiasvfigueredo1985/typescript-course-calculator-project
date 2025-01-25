@@ -1,11 +1,7 @@
-/* eslint-disable no-eval */
-/* eslint-disable @typescript-eslint/no-magic-numbers */
 interface IOperationsOptions {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onCalculation: any
 }
 export default class Operations {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private readonly onCalculation: any
 
   constructor(

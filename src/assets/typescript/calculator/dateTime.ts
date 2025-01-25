@@ -14,7 +14,6 @@ export default class DateTime {
     this.renderDateTime()
     setInterval(() => {
       this.renderDateTime()
-      // eslint-disable-next-line @typescript-eslint/no-magic-numbers
     }, 1000)
   }
 
@@ -24,24 +23,19 @@ export default class DateTime {
     const month = currentDate.toLocaleDateString('pt-BR', { month: 'long' })
     const year = currentDate.getFullYear()
     const hours = currentDate.getHours()
-    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
     const minutes = currentDate.getMinutes().toString().padStart(2, '0')
-    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
     const twoDots = currentDate.getSeconds() % 2 === 0 ? ':' : ' '
 
     this.date = `${day} de ${month} de ${year}`
-    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
     this.time = `${hours}${twoDots}${minutes}`
   }
 
-  // eslint-disable-next-line accessor-pairs
   set date(content: string) {
     if (this.dateElement != null) {
       this.dateElement.innerHTML = content
     }
   }
 
-  // eslint-disable-next-line accessor-pairs
   set time(content: string) {
     if (this.timeElement != null) {
       this.timeElement.innerHTML = content

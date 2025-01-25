@@ -1,10 +1,8 @@
-/* eslint-disable @typescript-eslint/no-magic-numbers */
-/* eslint-disable no-new */
 import click from '../../../assets/sounds/click.mp3'
 import DateTime from './dateTime'
 import Display from './display'
 import Operations from './operations'
-// eslint-disable-next-line @typescript-eslint/no-extraneous-class
+
 export default class CalculatorControl {
   private renderInterval: NodeJS.Timeout | null = null
   private isMuted: boolean = true
