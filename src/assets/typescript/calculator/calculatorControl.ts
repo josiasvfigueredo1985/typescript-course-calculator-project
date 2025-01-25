@@ -104,15 +104,14 @@ export default class CalculatorControl {
   }
 
   renderWaitNewEntry(): NodeJS.Timeout {
-    return setInterval(() => {
-      this.waitNewEntry()
-    }, 1000)
-  }
-
-  waitNewEntry(): void {
-    const date = new Date()
-    const waitIcon = date.getSeconds() % 2 === 0 ? '_' : ' '
-    this.display.content = waitIcon
+    let visible = true
+    const icon1 = '_'
+    const icon2 = ' '
+    const waitNewEntry = setInterval(() => {
+      this.display.content = visible ? icon1 : icon2
+      visible = !visible
+    }, 500)
+    return waitNewEntry
   }
 
   stopRender(timeoutFunc: NodeJS.Timeout | null): void {
