@@ -1,12 +1,32 @@
 import DateTime from "../calculator/dateTime";
 import Display from "../calculator/display";
 import Operations from "../calculator/operations";
+import { KeyNumbers } from "../enums/keyNumbers";
+import { OperationsType } from "../enums/operationsType";
 import { ICalculatorControl } from "../interfaces/icalculatorControl";
 
 export abstract class AbCalculatorControl implements ICalculatorControl {
 
     protected renderInterval: NodeJS.Timeout | null = null
     protected isMuted: boolean = true
+
+    protected keyNumbers = [
+        KeyNumbers.zero,
+        KeyNumbers.one,
+        KeyNumbers.two,
+        KeyNumbers.three,
+        KeyNumbers.four,
+        KeyNumbers.five,
+        KeyNumbers.six,
+        KeyNumbers.seven,
+        KeyNumbers.eight,
+        KeyNumbers.nine,] as string[];
+
+    protected operations = [OperationsType.add,
+    OperationsType.sub,
+    OperationsType.mult,
+    OperationsType.div,
+    OperationsType.percentage,] as string[];
 
     constructor(
         protected readonly display = new Display(),

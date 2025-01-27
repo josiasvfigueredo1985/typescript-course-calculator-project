@@ -4,5 +4,4 @@ export enum OperationsType {
     mult = 'multiplicacao',
     div = 'divisao',
     percentage = 'porcentagem',
-    dot = 'ponto'
 }

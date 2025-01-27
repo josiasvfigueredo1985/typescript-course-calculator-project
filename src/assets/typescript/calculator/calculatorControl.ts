@@ -3,8 +3,7 @@ import { AbCalculatorControl } from '../abstract/abcalculatorControl'
 import { defaultContent } from '../abstract/abDisplay'
 import { Actions } from '../enums/actions'
 import { Events } from '../enums/events'
-import { KeyNumbers } from '../enums/keyNumbers'
-import { OperationsType } from '../enums/operationsType'
+import { NumFormatting } from '../enums/numFormatting'
 import { OperationsSymbols } from '../enums/operatorsSymbols'
 import { acoesSelectors, tecladoSelectors } from '../selectors/domSelectors'
 import SettingsDisplay from './settingsDisplay'
@@ -29,39 +28,14 @@ export default class CalculatorControl extends AbCalculatorControl {
         const target = event.target as HTMLButtonElement
         this.stopRender(this.renderInterval)
         this.clickSound(this.isMuted)
-        switch (target.id) {
-          case KeyNumbers.zero:
-          case KeyNumbers.one:
-          case KeyNumbers.two:
-          case KeyNumbers.three:
-          case KeyNumbers.four:
-          case KeyNumbers.five:
-          case KeyNumbers.six:
-          case KeyNumbers.seven:
-          case KeyNumbers.eight:
-          case KeyNumbers.nine:
-            this.addNumber(Number(target.dataset.valor))
-            break
-          case OperationsType.add:
-          case OperationsType.sub:
-          case OperationsType.mult:
-          case OperationsType.div:
-          case OperationsType.percentage:
-            this.addOperator(target.dataset.valor ?? '')
-            break
-          case OperationsType.dot:
-            this.addDot(target.dataset.valor ?? '')
-            break
-          case Actions.clean:
-            this.clearAll()
-            break
-          case Actions.undo:
-            this.clearLastEntry()
-            this.renderInterval = this.renderWaitNewEntry()
-            break
-          case Actions.equal:
-            this.calculate()
-            break
+        this.keyNumbers.includes(target.id) && this.addNumber(Number(target.dataset.valor))
+        this.operations.includes(target.id) && this.addOperator(target.dataset.valor ?? '')
+        target.id === NumFormatting.dot && this.addDot(target.dataset.valor ?? '')
+        target.id === Actions.clean && this.clearAll()
+        target.id === Actions.equal && this.calculate()
+        if (target.id === Actions.undo) {
+          this.clearLastEntry()
+          this.renderInterval = this.renderWaitNewEntry()
         }
       })
     })
