@@ -1,5 +1,6 @@
 import click from '../../sounds/click.mp3'
 import { AbCalculatorControl } from '../abstract/abcalculatorControl'
+import { acoesSelectors, tecladoSelectors } from '../selectors/domSelectors'
 import SettingsDisplay from './settingsDisplay'
 
 export default class CalculatorControl extends AbCalculatorControl {
@@ -10,14 +11,14 @@ export default class CalculatorControl extends AbCalculatorControl {
 
   buttonsEvent(): void {
     const settings = new SettingsDisplay()
-    document.querySelectorAll('#acoes button').forEach((button) => {
+    document.querySelectorAll(acoesSelectors.muteButton).forEach((button) => {
       button.addEventListener('click', async () => {
         this.isMuted = !this.isMuted; // Alterna o estado de mudo
         settings.soundIcon = this.isMuted
       })
     })
 
-    document.querySelectorAll('#teclado button').forEach((button) => {
+    document.querySelectorAll(tecladoSelectors.btnKeys).forEach((button) => {
       button.addEventListener('click', async (event: Event) => {
         const target = event.target as HTMLButtonElement
         this.stopRender(this.renderInterval)

@@ -1,15 +1,13 @@
-import { ISettingDisplay } from "../interfaces/isettingsDisplay"
+import { AbSettingsDisplay } from "../abstract/abSettingsDisplay"
+import { displaySelectors } from "../selectors/domSelectors"
 
-export default class SettingsDisplay implements ISettingDisplay {
-  constructor(
-    private readonly settingsElement: HTMLDivElement | null = document.querySelector(
-      '#display-settings'
-    )
-  ) {
+export default class SettingsDisplay extends AbSettingsDisplay {
+  constructor() {
+    super()
   }
 
   set soundIcon(mute: boolean) {
-    const soundElement = this.settingsElement?.querySelector('#audio')
+    const soundElement = this.settingsElement?.querySelector(displaySelectors.soundIconEl)
 
     if (soundElement !== null && soundElement !== undefined) {
       if (mute) {
@@ -24,7 +22,7 @@ export default class SettingsDisplay implements ISettingDisplay {
   }
 
   set legend(legendText: string) {
-    const legend = this.settingsElement?.querySelector('#settings-legend')
+    const legend = this.settingsElement?.querySelector(displaySelectors.displayLegendsEl)
     if (legend !== null && legend !== undefined) {
       legend.innerHTML = legendText
     }

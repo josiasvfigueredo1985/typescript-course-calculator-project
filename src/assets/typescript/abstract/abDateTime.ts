@@ -1,13 +1,14 @@
 import { IDateTime } from "../interfaces/idateTime";
+import { displaySelectors } from "../selectors/domSelectors";
 
 export abstract class AbDateTime implements IDateTime {
 
     constructor(
         protected readonly dateElement: HTMLDivElement | null = document.querySelector(
-            '#datetime > div:nth-child(2)'
+            displaySelectors.dateEl
         ),
         protected readonly timeElement: HTMLDivElement | null = document.querySelector(
-            '#datetime time'
+            displaySelectors.timeEl
         )
         ,
     ) {

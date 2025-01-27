@@ -1,4 +1,5 @@
 import { IDisplay } from "../interfaces/idisplay";
+import { displaySelectors } from "../selectors/domSelectors";
 
 export abstract class AbDisplay implements IDisplay {
     protected valuesElement: HTMLElement | null;
@@ -6,7 +7,7 @@ export abstract class AbDisplay implements IDisplay {
     constructor() {
         if (typeof document !== "undefined") {
             // Apenas inicializa `valuesElement` se o `document` estiver disponível
-            this.valuesElement = document.querySelector('#values');
+            this.valuesElement = document.querySelector(displaySelectors.displayValuesEl)
         } else {
             this.valuesElement = null;
         }
