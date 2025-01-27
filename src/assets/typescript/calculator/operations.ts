@@ -8,10 +8,8 @@ export default class Operations extends AbOperations {
   addValues(value: string): number {
     const opsLimit = 3
     this.ops.length === opsLimit && this.calculate()
-
     this.ops.push(value)
     console.log(this.ops)
-
     return this.length
   }
 
@@ -32,7 +30,6 @@ export default class Operations extends AbOperations {
     if (result.length > displayLimit) {
       result = result.substring(0, displayLimit)
     }
-
     this.ops = [result]
     this.onCalculation(result)
   }

@@ -10,14 +10,13 @@ export default class SettingsDisplay extends AbSettingsDisplay {
 
   set soundIcon(mute: boolean) {
     const soundElement = this.settingsElement?.querySelector(displaySelectors.soundIconEl)
-
+    const attr = 'src'
     if (soundElement !== null && soundElement !== undefined) {
       if (mute) {
-        soundElement.setAttribute('src', volumeIcon.on)
+        soundElement.setAttribute(attr, volumeIcon.on)
         this.legend = Legends.soundOn
-
       } else {
-        soundElement.setAttribute('src', volumeIcon.off)
+        soundElement.setAttribute(attr, volumeIcon.off)
         this.legend = Legends.soundOff
       }
     }

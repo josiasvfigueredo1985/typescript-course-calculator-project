@@ -56,7 +56,6 @@ export default class CalculatorControl extends AbCalculatorControl {
       value = Number(this.ops.lastPosition.toString() + value.toString())
       this.ops.lastPosition = value.toString()
     }
-
     this.display.content = value.toString()
   }
 
@@ -92,7 +91,6 @@ export default class CalculatorControl extends AbCalculatorControl {
     const audio = new Audio(click)
     mute && audio.play()
   }
-
 
   clearAll(): void {
     this.ops.clear()

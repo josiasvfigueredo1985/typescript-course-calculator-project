@@ -4,5 +4,7 @@ export enum OperationsSymbols {
     sub = '-',
     div = '/',
     percentage = '%',
-    dot = '.'
+    dot = '.',
+    equal = '=',
+    inference = ':',
 }

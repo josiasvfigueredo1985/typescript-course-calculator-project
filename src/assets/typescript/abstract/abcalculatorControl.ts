@@ -9,7 +9,6 @@ export abstract class AbCalculatorControl implements ICalculatorControl {
 
     protected renderInterval: NodeJS.Timeout | null = null
     protected isMuted: boolean = true
-
     protected keyNumbers = [
         KeyNumbers.zero,
         KeyNumbers.one,
@@ -20,13 +19,15 @@ export abstract class AbCalculatorControl implements ICalculatorControl {
         KeyNumbers.six,
         KeyNumbers.seven,
         KeyNumbers.eight,
-        KeyNumbers.nine,] as string[];
-
-    protected operations = [OperationsType.add,
-    OperationsType.sub,
-    OperationsType.mult,
-    OperationsType.div,
-    OperationsType.percentage,] as string[];
+        KeyNumbers.nine
+    ] as string[];
+    protected operations = [
+        OperationsType.add,
+        OperationsType.sub,
+        OperationsType.mult,
+        OperationsType.div,
+        OperationsType.percentage
+    ] as string[];
 
     constructor(
         protected readonly display = new Display(),
