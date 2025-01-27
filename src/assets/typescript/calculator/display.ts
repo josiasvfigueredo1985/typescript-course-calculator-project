@@ -10,7 +10,6 @@ export default class Display {
     } else {
       this.valuesElement = null;
     }
-
     this.content = '0';
   }
 

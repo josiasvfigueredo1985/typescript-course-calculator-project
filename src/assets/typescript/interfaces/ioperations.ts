@@ -5,6 +5,7 @@ export interface IOperations {
     calculate(): void
     percentage(): string
     getResults(): string
-    lastPosition: string
-    length: number
+    get lastPosition(): string
+    set lastPosition(value: string)
+    get length(): number
 }
