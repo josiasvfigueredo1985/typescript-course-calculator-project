@@ -1,4 +1,5 @@
 import { AbSettingsDisplay } from "../abstract/abSettingsDisplay"
+import { volumeIcon } from "../resources/resources"
 import { displaySelectors } from "../selectors/domSelectors"
 
 export default class SettingsDisplay extends AbSettingsDisplay {
@@ -11,11 +12,11 @@ export default class SettingsDisplay extends AbSettingsDisplay {
 
     if (soundElement !== null && soundElement !== undefined) {
       if (mute) {
-        soundElement.setAttribute('src', '/assets/images/volume-on.svg')
+        soundElement.setAttribute('src', volumeIcon.on)
         this.legend = 'sound on'
 
       } else {
-        soundElement.setAttribute('src', '/assets/images/volume-off.svg')
+        soundElement.setAttribute('src', volumeIcon.off)
         this.legend = 'sound off'
       }
     }
