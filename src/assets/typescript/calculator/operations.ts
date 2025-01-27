@@ -1,15 +1,6 @@
-import { IOperations } from "../interfaces/ioperations"
-import { IOperationsOptions } from "../interfaces/ioperationsOptions"
+import { AbOperations } from "../abstract/abOperations"
 
-export default class Operations implements IOperations {
-  private readonly onCalculation: any
-
-  constructor(
-    opts: IOperationsOptions,
-    private ops: string[] = []
-  ) {
-    this.onCalculation = opts.onCalculation // ['122', +, '44']
-  }
+export default class Operations extends AbOperations {
 
   addValues(value: string): number {
     const opsLimit = 3
