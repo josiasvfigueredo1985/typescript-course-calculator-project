@@ -1,19 +1,8 @@
-import { IDateTime } from "../interfaces/idateTime"
+import { AbDateTime } from "../abstract/abDateTime"
 
-export default class DateTime implements IDateTime {
-  constructor(
-    private readonly dateElement: HTMLDivElement | null = document.querySelector(
-      '#datetime > div:nth-child(2)'
-    ),
-    private readonly timeElement: HTMLDivElement | null = document.querySelector(
-      '#datetime time'
-    )
-    ,
-  ) {
-    this.renderDateTime()
-    setInterval(() => {
-      this.renderDateTime()
-    }, 1000)
+export default class DateTime extends AbDateTime {
+  constructor() {
+    super()
   }
 
   renderDateTime(): void {
