@@ -3,6 +3,7 @@ import { ICalculatorControl } from '../interfaces/icalculatorControl'
 import DateTime from './dateTime'
 import Display from './display'
 import Operations from './operations'
+import SettingsDisplay from './settingsDisplay'
 
 export default class CalculatorControl implements ICalculatorControl {
   private renderInterval: NodeJS.Timeout | null = null
@@ -21,11 +22,11 @@ export default class CalculatorControl implements ICalculatorControl {
   }
 
   buttonsEvent(): void {
-    const display = new DateTime()
+    const settings = new SettingsDisplay()
     document.querySelectorAll('#acoes button').forEach((button) => {
       button.addEventListener('click', async () => {
         this.isMuted = !this.isMuted; // Alterna o estado de mudo
-        display.soundIcon = this.isMuted
+        settings.soundIcon = this.isMuted
       })
     })
 

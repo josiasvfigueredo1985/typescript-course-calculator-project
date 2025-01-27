@@ -1,6 +1,6 @@
 import { IDateTime } from "../interfaces/idateTime"
 
-export default class DateTime implements IDateTime{
+export default class DateTime implements IDateTime {
   constructor(
     private readonly dateElement: HTMLDivElement | null = document.querySelector(
       '#datetime > div:nth-child(2)'
@@ -9,9 +9,6 @@ export default class DateTime implements IDateTime{
       '#datetime time'
     )
     ,
-    private readonly soundElement: HTMLDivElement | null = document.querySelector(
-      '#datetime #audio'
-    )
   ) {
     this.renderDateTime()
     setInterval(() => {
@@ -41,16 +38,6 @@ export default class DateTime implements IDateTime{
   set time(content: string) {
     if (this.timeElement != null) {
       this.timeElement.innerHTML = content
-    }
-  }
-
-  set soundIcon(mute: boolean) {
-    if (this.soundElement !== null) {
-      if (mute) {
-        this.soundElement.setAttribute('src', '/assets/images/volume-on.svg')
-      } else {
-        this.soundElement.setAttribute('src', '/assets/images/volume-off.svg')
-      }
     }
   }
 }
