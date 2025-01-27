@@ -76,7 +76,7 @@ export default class CalculatorControl {
   }
 
   addOps(value: string): void {
-    this.ops.add(value)
+    this.ops.addValues(value)
   }
 
   addNumber(value: number): void {

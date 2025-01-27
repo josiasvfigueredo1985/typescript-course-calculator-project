@@ -1,24 +1,21 @@
-interface IOperationsOptions {
-  onCalculation: any
-}
-export default class Operations {
+import { IOperations } from "../interfaces/ioperations"
+import { IOperationsOptions } from "../interfaces/ioperationsOptions"
+
+export default class Operations implements IOperations {
   private readonly onCalculation: any
 
   constructor(
     opts: IOperationsOptions,
     private ops: string[] = []
   ) {
-    this.onCalculation = opts.onCalculation
-    // ['122', +, '44']
+    this.onCalculation = opts.onCalculation // ['122', +, '44']
   }
 
-  add(value: string): number {
+  addValues(value: string): number {
     const opsLimit = 3
-    if (this.ops.length === opsLimit) {
-      this.calculate()
-    }
-    this.ops.push(value)
+    this.ops.length === opsLimit && this.calculate()
 
+    this.ops.push(value)
     console.log(this.ops)
 
     return this.length
@@ -36,13 +33,13 @@ export default class Operations {
 
   calculate(): void {
     const displayLimit = 12
-    // eslint-disable-next-line prefer-const
     let result = this.getResults()
+
     if (result.length > displayLimit) {
       result = result.substring(0, displayLimit)
     }
-    this.ops = [result]
 
+    this.ops = [result]
     this.onCalculation(result)
   }
 
