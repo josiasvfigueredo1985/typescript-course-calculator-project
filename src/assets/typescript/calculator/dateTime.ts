@@ -1,4 +1,6 @@
-export default class DateTime {
+import { IDateTime } from "../interfaces/idateTime"
+
+export default class DateTime implements IDateTime{
   constructor(
     private readonly dateElement: HTMLDivElement | null = document.querySelector(
       '#datetime > div:nth-child(2)'
