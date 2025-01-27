@@ -1,9 +1,10 @@
 import click from '../../sounds/click.mp3'
+import { ICalculatorControl } from '../interfaces/icalculatorControl'
 import DateTime from './dateTime'
 import Display from './display'
 import Operations from './operations'
 
-export default class CalculatorControl {
+export default class CalculatorControl implements ICalculatorControl {
   private renderInterval: NodeJS.Timeout | null = null
   private isMuted: boolean = true
 
