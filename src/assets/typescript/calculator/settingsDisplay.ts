@@ -2,20 +2,31 @@ import { ISettingDisplay } from "../interfaces/isettingsDisplay"
 
 export default class SettingsDisplay implements ISettingDisplay {
   constructor(
-    private readonly soundElement: HTMLDivElement | null = document.querySelector(
-      '#datetime #audio'
+    private readonly settingsElement: HTMLDivElement | null = document.querySelector(
+      '#display-settings'
     )
   ) {
-
   }
 
   set soundIcon(mute: boolean) {
-    if (this.soundElement !== null) {
+    const soundElement = this.settingsElement?.querySelector('#audio')
+
+    if (soundElement !== null && soundElement !== undefined) {
       if (mute) {
-        this.soundElement.setAttribute('src', '/assets/images/volume-on.svg')
+        soundElement.setAttribute('src', '/assets/images/volume-on.svg')
+        this.legend = 'sound on'
+
       } else {
-        this.soundElement.setAttribute('src', '/assets/images/volume-off.svg')
+        soundElement.setAttribute('src', '/assets/images/volume-off.svg')
+        this.legend = 'sound off'
       }
+    }
+  }
+
+  set legend(legendText: string) {
+    const legend = this.settingsElement?.querySelector('#settings-legend')
+    if (legend !== null && legend !== undefined) {
+      legend.innerHTML = legendText
     }
   }
 }
