@@ -1,5 +1,11 @@
 import click from '../../sounds/click.mp3'
 import { AbCalculatorControl } from '../abstract/abcalculatorControl'
+import { defaultContent } from '../abstract/abDisplay'
+import { Actions } from '../enums/actions'
+import { Events } from '../enums/events'
+import { KeyNumbers } from '../enums/keyNumbers'
+import { OperationsType } from '../enums/operationsType'
+import { OperationsSymbols } from '../enums/operatorsSymbols'
 import { acoesSelectors, tecladoSelectors } from '../selectors/domSelectors'
 import SettingsDisplay from './settingsDisplay'
 
@@ -12,48 +18,48 @@ export default class CalculatorControl extends AbCalculatorControl {
   buttonsEvent(): void {
     const settings = new SettingsDisplay()
     document.querySelectorAll(acoesSelectors.muteButton).forEach((button) => {
-      button.addEventListener('click', async () => {
+      button.addEventListener(Events.click, async () => {
         this.isMuted = !this.isMuted; // Alterna o estado de mudo
         settings.soundIcon = this.isMuted
       })
     })
 
     document.querySelectorAll(tecladoSelectors.btnKeys).forEach((button) => {
-      button.addEventListener('click', async (event: Event) => {
+      button.addEventListener(Events.click, async (event: Event) => {
         const target = event.target as HTMLButtonElement
         this.stopRender(this.renderInterval)
         this.clickSound(this.isMuted)
         switch (target.id) {
-          case 'zero':
-          case 'um':
-          case 'dois':
-          case 'tres':
-          case 'quatro':
-          case 'cinco':
-          case 'seis':
-          case 'sete':
-          case 'oito':
-          case 'nove':
+          case KeyNumbers.zero:
+          case KeyNumbers.one:
+          case KeyNumbers.two:
+          case KeyNumbers.three:
+          case KeyNumbers.four:
+          case KeyNumbers.five:
+          case KeyNumbers.six:
+          case KeyNumbers.seven:
+          case KeyNumbers.eight:
+          case KeyNumbers.nine:
             this.addNumber(Number(target.dataset.valor))
             break
-          case 'adicao':
-          case 'subtracao':
-          case 'multiplicacao':
-          case 'divisao':
-          case 'porcentagem':
+          case OperationsType.add:
+          case OperationsType.sub:
+          case OperationsType.mult:
+          case OperationsType.div:
+          case OperationsType.percentage:
             this.addOperator(target.dataset.valor ?? '')
             break
-          case 'ponto':
+          case OperationsType.dot:
             this.addDot(target.dataset.valor ?? '')
             break
-          case 'limpar':
+          case Actions.clean:
             this.clearAll()
             break
-          case 'desfazer':
+          case Actions.undo:
             this.clearLastEntry()
             this.renderInterval = this.renderWaitNewEntry()
             break
-          case 'igual':
+          case Actions.equal:
             this.calculate()
             break
         }
@@ -116,7 +122,7 @@ export default class CalculatorControl extends AbCalculatorControl {
 
   clearAll(): void {
     this.ops.clear()
-    this.display.content = '0'
+    this.display.content = defaultContent
   }
 
   clearLastEntry(): void {
@@ -129,7 +135,7 @@ export default class CalculatorControl extends AbCalculatorControl {
       const value = this.ops.lastPosition.toString() + dot
       this.ops.lastPosition = value.toString()
     } else {
-      if (this.ops.lastPosition.toString() === '.') {
+      if (this.ops.lastPosition.toString() === OperationsSymbols.dot) {
         this.ops.clear()
       }
       this.addOps(dot)

@@ -1,4 +1,5 @@
 import { AbSettingsDisplay } from "../abstract/abSettingsDisplay"
+import { Legends } from "../enums/legends"
 import { volumeIcon } from "../resources/resources"
 import { displaySelectors } from "../selectors/domSelectors"
 
@@ -13,11 +14,11 @@ export default class SettingsDisplay extends AbSettingsDisplay {
     if (soundElement !== null && soundElement !== undefined) {
       if (mute) {
         soundElement.setAttribute('src', volumeIcon.on)
-        this.legend = 'sound on'
+        this.legend = Legends.soundOn
 
       } else {
         soundElement.setAttribute('src', volumeIcon.off)
-        this.legend = 'sound off'
+        this.legend = Legends.soundOff
       }
     }
   }

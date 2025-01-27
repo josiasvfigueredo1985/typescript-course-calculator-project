@@ -1,4 +1,7 @@
+import { defaultContent } from "../abstract/abDisplay"
 import { AbOperations } from "../abstract/abOperations"
+import { Actions } from "../enums/actions"
+import { OperationsSymbols } from "../enums/operatorsSymbols"
 
 export default class Operations extends AbOperations {
 
@@ -36,10 +39,10 @@ export default class Operations extends AbOperations {
 
   percentage(): string {
     const values = this.ops.join('')
-    const lastValue = values.substring(values.search('%') + 1)
+    const lastValue = values.substring(values.search(OperationsSymbols.percentage) + 1)
     const newValue = values.replace(
-      `%${lastValue}`,
-      `*${Number(lastValue) * 0.01}`
+      `${OperationsSymbols.percentage}${lastValue}`,
+      `${OperationsSymbols.mult}${Number(lastValue) * 0.01}`
     )
     return eval(newValue).toString()
   }
@@ -48,17 +51,17 @@ export default class Operations extends AbOperations {
     let results: string
     const values = this.ops.join('')
     try {
-      results = values.includes('%')
+      results = values.includes(OperationsSymbols.percentage)
         ? this.percentage()
         : eval(values).toString()
     } catch (error) {
-      results = 'error'
+      results = Actions.error
     }
     return results
   }
 
   get lastPosition(): string {
-    const lastIndex = this.ops.length > 0 ? this.ops[this.ops.length - 1] : '0'
+    const lastIndex = this.ops.length > 0 ? this.ops[this.ops.length - 1] : defaultContent
     return lastIndex
   }
 

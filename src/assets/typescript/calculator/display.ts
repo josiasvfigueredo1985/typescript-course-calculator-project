@@ -1,11 +1,12 @@
 import error from '../../sounds/error.mp3';
-import { AbDisplay } from '../abstract/abDisplay';
+import { AbDisplay, defaultContent } from '../abstract/abDisplay';
+import { Actions } from '../enums/actions';
 
 export default class Display extends AbDisplay {
 
   constructor() {
     super()
-    this.content = '0';
+    this.content = defaultContent
   }
 
   errorSound(): void {
@@ -14,14 +15,14 @@ export default class Display extends AbDisplay {
   }
 
   get content(): string {
-    return this.valuesElement != null ? this.valuesElement.innerHTML : '0';
+    return this.valuesElement != null ? this.valuesElement.innerHTML : defaultContent
   }
 
   set content(value: string) {
     const displayLengthLimit = 12;
     if (this.valuesElement != null) {
       this.valuesElement.innerHTML =
-        value.length > displayLengthLimit ? 'ERROR' : value.replace('.', ',');
+        value.length > displayLengthLimit ? Actions.error : value.replace('.', ',');
       value.length > displayLengthLimit && this.errorSound()
     }
   }

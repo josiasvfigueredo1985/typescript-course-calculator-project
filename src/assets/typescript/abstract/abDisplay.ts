@@ -1,6 +1,7 @@
 import { IDisplay } from "../interfaces/idisplay";
 import { displaySelectors } from "../selectors/domSelectors";
 
+export const defaultContent = '0';
 export abstract class AbDisplay implements IDisplay {
     protected valuesElement: HTMLElement | null;
 
