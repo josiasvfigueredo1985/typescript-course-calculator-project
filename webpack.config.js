@@ -30,15 +30,12 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(mp3)$/, // Para arquivos de fontes e áudio
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[path][name].[ext]', // Mantém o caminho original
-            },
-          },
-        ],
+        test: /\.mp3$/, // Para arquivos de fontes e áudio
+        loader: 'file-loader',
+        options: {
+          outputPath: 'assets/sounds',
+          name: '[name].[ext]',
+        },
       },
     ]
   },
@@ -54,8 +51,6 @@ module.exports = {
         { from: 'src/assets/css', to: 'assets/css' },
         { from: 'src/assets/fonts', to: 'assets/fonts' },
         { from: 'src/assets/images', to: 'assets/images' },
-        { from: 'src/assets/scss', to: 'assets/scss' },
-        { from: 'src/assets/sounds', to: 'assets/sounds' },
       ],
     }),
   ],

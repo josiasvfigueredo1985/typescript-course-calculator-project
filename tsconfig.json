@@ -34,7 +34,7 @@
   },
   "typeRoots": [
     "./node_modules/@types",
-    "./src/@types" // Adicione o caminho para suas declarações de tipo
+    "@types"
   ],
   "include": [
     "src/**/*", // Includes all TypeScript files in the src folder for compilation
