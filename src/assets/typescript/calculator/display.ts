@@ -1,4 +1,4 @@
-import error from '../../../assets/sounds/error.mp3';
+import error from '../../sounds/error.mp3';
 
 export default class Display {
   private readonly valuesElement: HTMLElement | null;
