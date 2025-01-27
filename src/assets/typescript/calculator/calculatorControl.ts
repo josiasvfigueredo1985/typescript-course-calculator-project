@@ -1,24 +1,11 @@
 import click from '../../sounds/click.mp3'
-import { ICalculatorControl } from '../interfaces/icalculatorControl'
-import DateTime from './dateTime'
-import Display from './display'
-import Operations from './operations'
+import { AbCalculatorControl } from '../abstract/abcalculatorControl'
 import SettingsDisplay from './settingsDisplay'
 
-export default class CalculatorControl implements ICalculatorControl {
-  private renderInterval: NodeJS.Timeout | null = null
-  private isMuted: boolean = true
+export default class CalculatorControl extends AbCalculatorControl {
 
-  constructor(
-    private readonly display = new Display(),
-    private readonly ops = new Operations({
-      onCalculation: (result: string) => {
-        this.display.content = result
-      },
-    })
-  ) {
-    new DateTime()
-    this.buttonsEvent()
+  constructor() {
+    super()
   }
 
   buttonsEvent(): void {

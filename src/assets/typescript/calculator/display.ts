@@ -1,15 +1,10 @@
 import error from '../../sounds/error.mp3';
+import { AbDisplay } from '../abstract/abDisplay';
 
-export default class Display {
-  private readonly valuesElement: HTMLElement | null;
+export default class Display extends AbDisplay {
 
   constructor() {
-    if (typeof document !== "undefined") {
-      // Apenas inicializa `valuesElement` se o `document` estiver disponível
-      this.valuesElement = document.querySelector('#values');
-    } else {
-      this.valuesElement = null;
-    }
+    super()
     this.content = '0';
   }
 
