@@ -9,12 +9,12 @@ const acoes = '#acoes'
 const settingsInfo = '#display-settings'
 
 export const displaySelectors = {
-    dateEl: `${calculadora} ${tela} ${display} ${topDisplay}  ${date}`,
     timeEl: `${calculadora} ${tela} ${display} ${time} time`,
     settingsEl: `${calculadora} ${tela} ${display} ${settingsInfo}`,
-    displayValuesEl: `${calculadora} ${tela} ${display} #values`,
     soundIconEl: `${calculadora} ${tela} ${display} ${settingsInfo} #sound-icon`,
     displayLegendsEl: `${calculadora} ${tela} ${display} ${settingsInfo} #settings-legend`,
+    dateEl: `${calculadora} ${tela} ${display} ${topDisplay}  ${date}`,
+    displayValuesEl: `${calculadora} ${tela} ${display} #values`,
 }
 
 export const acoesSelectors = {
