@@ -9,7 +9,7 @@ const config: Config = {
     testMatch: ['**/*.test.ts'],
     moduleNameMapper: {
         '\\.(css|less|scss)$': 'identity-obj-proxy', // Para arquivos CSS
-        '\\.(jpg|jpeg|png|gif|mp3|wav)$': '<rootDir>/src/tests/__mocks__/fileMock.js', // Para arquivos de mídia
+        '\\.(jpg|jpeg|png|gif|mp3|wav)$': '<rootDir>/src/__mocks__/fileMock.js', // Para arquivos de mídia
     },
 };
 

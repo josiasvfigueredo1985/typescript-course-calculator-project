@@ -41,7 +41,7 @@ export default class CalculatorControl extends AbCalculatorControl {
     })
   }
 
- calculate(): void {
+  calculate(): void {
     this.ops.calculate()
   }
 
@@ -112,5 +112,9 @@ export default class CalculatorControl extends AbCalculatorControl {
       }
       this.addOps(dot)
     }
+  }
+
+  getResults(): string {
+    return this.ops.getResults()
   }
 }
