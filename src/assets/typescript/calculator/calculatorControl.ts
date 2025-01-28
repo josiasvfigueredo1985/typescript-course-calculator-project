@@ -41,7 +41,7 @@ export default class CalculatorControl extends AbCalculatorControl {
     })
   }
 
-  calculate(): void {
+ calculate(): void {
     this.ops.calculate()
   }
 
