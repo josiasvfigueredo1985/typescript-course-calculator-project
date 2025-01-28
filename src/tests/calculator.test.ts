@@ -1,6 +1,7 @@
 // src/__tests__/Calculator.test.ts
 import { randomInt } from 'crypto';
 import CalculatorControl from '../assets/typescript/calculator/calculatorControl';
+import { TestUtils } from '../utils/test.utils';
 
 describe('Calculator - Calculate function', () => {
     let calculator: CalculatorControl;
@@ -42,8 +43,7 @@ describe('Calculator - Calculate function', () => {
         calculator.calculate();
         const result = calculator.getResults()
         const value = (rn1 / rn2).toString();
-        let expected: string = eval(value).toString()
-        if (expected.length > 12) { expected = expected.substring(0, 12) }
+        let expected = TestUtils.calculateExpectedResults(value)
         expect(result).toBe(expected);
     });
 });
