@@ -42,7 +42,8 @@ describe('Calculator - Calculate function', () => {
         calculator.calculate();
         const result = calculator.getResults()
         const value = (rn1 / rn2).toString();
-        const expected = eval(value).toString().substring(0, 12)
+        let expected: string = eval(value).toString()
+        if (expected.length > 12) { expected = expected.substring(0, 12) }
         expect(result).toBe(expected);
     });
 });
