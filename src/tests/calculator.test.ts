@@ -9,9 +9,10 @@ describe('Calculator - Calculate function', () => {
     let rn2: number
 
     beforeEach(() => {
+        const maxN = 99
         calculator = new CalculatorControl()
-        rn1 = randomInt(1, 99)
-        rn2 = randomInt(1, 99)
+        rn1 = randomInt(1, maxN)
+        rn2 = randomInt(1, maxN)
     })
 
     it('should correctly add two numbers', () => {

@@ -1,4 +1,4 @@
-export enum Actions {
+export enum EActions {
     clean = 'limpar',
     undo = 'desfazer',
     equal = 'igual',

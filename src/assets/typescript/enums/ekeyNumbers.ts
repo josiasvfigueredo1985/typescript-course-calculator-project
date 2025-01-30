@@ -1,4 +1,4 @@
-export enum KeyNumbers {
+export enum EKeyNumbers {
     one = 'um',
     two = 'dois',
     three = 'tres',

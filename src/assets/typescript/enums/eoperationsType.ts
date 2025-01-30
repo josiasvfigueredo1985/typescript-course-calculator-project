@@ -1,4 +1,4 @@
-export enum OperationsType {
+export enum EOperationsType {
     add = 'adicao',
     sub = 'subtracao',
     mult = 'multiplicacao',

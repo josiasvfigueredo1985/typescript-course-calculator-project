@@ -6,9 +6,10 @@ import tseslint from 'typescript-eslint'
 export default tseslint.config(
     {
         // config with just ignores is the replacement for `.eslintignore`
-        ignores: ['src/**/**/*.js', 'dist', 'src/@types', '**/*.config.js'],
+        ignores: ['src/**/**/*.js', 'dist', 'src/@types', '**/*.config.*'],
     },
     tseslint.configs.recommended,
+    tseslint.configs.recommendedTypeChecked,
     {
         plugins: {
             '@typescript-eslint': tseslint.plugin,
@@ -68,6 +69,94 @@ export default tseslint.config(
             '@typescript-eslint/restrict-template-expressions': 'error',
             '@typescript-eslint/triple-slash-reference': 'error',
             '@typescript-eslint/unbound-method': 'error',
+            '@typescript-eslint/unified-signatures': 'error',
+            'no-use-before-define': 'off',
+            '@typescript-eslint/no-use-before-define': [
+                'error',
+                {
+                    functions: true,
+                    classes: true,
+                    variables: true,
+                    allowNamedExports: false,
+                },
+            ],
+            '@typescript-eslint/no-var-requires': 'error',
+            '@typescript-eslint/prefer-nullish-coalescing': 'error',
+            '@typescript-eslint/prefer-optional-chain': 'error',
+            '@typescript-eslint/no-empty-interface': 'error',
+            'no-magic-numbers': 'off',
+            '@typescript-eslint/no-magic-numbers': [
+                'error',
+                {
+                    ignore: [0, 1],
+                    ignoreEnums: false,
+                    ignoreNumericLiteralTypes: false,
+                    ignoreReadonlyClassProperties: false,
+                    ignoreTypeIndexes: false,
+                },
+            ],
+            'no-useless-constructor': 'off',
+            '@typescript-eslint/no-useless-constructor': 'error',
+            camelcase: 'off',
+            '@typescript-eslint/naming-convention': [
+                'error',
+                {
+                    selector: 'default',
+                    format: ['camelCase', 'PascalCase', 'snake_case'],
+                    leadingUnderscore: 'allow',
+                    trailingUnderscore: 'allow',
+                },
+                {
+                    selector: 'import',
+                    format: ['camelCase', 'PascalCase'],
+                },
+                {
+                    selector: 'variable',
+                    format: ['camelCase', 'UPPER_CASE', 'snake_case'],
+                },
+                {
+                    selector: 'parameter',
+                    format: ['camelCase'],
+                    leadingUnderscore: 'allow',
+                },
+                {
+                    selector: 'typeParameter',
+                    format: ['PascalCase'],
+                    prefix: ['T'],
+                },
+                {
+                    selector: 'variable',
+                    types: ['boolean'],
+                    format: ['PascalCase'],
+                    prefix: ['is', 'should', 'has', 'can', 'did', 'will'],
+                },
+                {
+                    selector: 'interface',
+                    format: ['PascalCase'],
+                    prefix: ['I'],
+                },
+                {
+                    selector: 'enum',
+                    format: ['PascalCase'],
+                    prefix: ['E'],
+                },
+                {
+                    selector: 'class',
+                    modifiers: ['abstract'],
+                    format: ['PascalCase'],
+                    prefix: ['Ab'],
+                },
+                {
+                    selector: 'memberLike',
+                    modifiers: ['private'],
+                    format: ['camelCase'],
+                    leadingUnderscore: 'allow',
+                },
+                {
+                    selector: 'typeLike',
+                    format: ['PascalCase'],
+                },
+            ],
         },
     },
     {

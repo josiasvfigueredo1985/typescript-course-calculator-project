@@ -10,10 +10,11 @@ export abstract class AbDateTime implements IDateTime {
             displaySelectors.timeEl
         )
     ) {
+        const secTime = 1000
         this.renderDateTime()
         setInterval(() => {
             this.renderDateTime()
-        }, 1000)
+        }, secTime)
     }
 
     abstract renderDateTime(): void

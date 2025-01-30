@@ -1,4 +1,4 @@
-export enum OperationsSymbols {
+export enum EOperationsSymbols {
     mult = '*',
     add = '+',
     sub = '-',

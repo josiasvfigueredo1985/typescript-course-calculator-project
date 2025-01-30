@@ -1,6 +1,6 @@
 import error from '../../sounds/error.mp3'
 import { AbDisplay, defaultContent } from '../abstract/abDisplay'
-import { Actions } from '../enums/actions'
+import { EActions } from '../enums/eactions'
 
 export default class Display extends AbDisplay {
     constructor() {
@@ -24,7 +24,7 @@ export default class Display extends AbDisplay {
         if (this.valuesElement != null) {
             this.valuesElement.innerHTML =
                 value.length > displayLengthLimit
-                    ? Actions.error
+                    ? EActions.error
                     : value.replace('.', ',')
             if (value.length > displayLengthLimit) {
                 this.errorSound()

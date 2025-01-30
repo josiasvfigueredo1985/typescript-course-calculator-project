@@ -1,24 +1,20 @@
 import click from '../../sounds/click.mp3'
 import { AbCalculatorControl } from '../abstract/abcalculatorControl'
 import { defaultContent } from '../abstract/abDisplay'
-import { Actions } from '../enums/actions'
-import { Events } from '../enums/events'
-import { NumFormatting } from '../enums/numFormatting'
-import { OperationsSymbols } from '../enums/operatorsSymbols'
+import { EActions } from '../enums/eactions'
+import { EEvents } from '../enums/eevents'
+import { ENumFormatting } from '../enums/enumFormatting'
+import { EOperationsSymbols } from '../enums/eoperatorsSymbols'
 import { acoesSelectors, tecladoSelectors } from '../selectors/domSelectors'
 import SettingsDisplay from './settingsDisplay'
 
 export default class CalculatorControl extends AbCalculatorControl {
-    constructor() {
-        super()
-    }
-
     buttonsEvent(): void {
         const settings = new SettingsDisplay()
         document
             .querySelectorAll(acoesSelectors.muteButton)
             .forEach((button) => {
-                button.addEventListener(Events.click, () => {
+                button.addEventListener(EEvents.click, () => {
                     this.isMuted = !this.isMuted // Alterna o estado de mudo
                     settings.soundIcon = this.isMuted
                 })
@@ -27,7 +23,7 @@ export default class CalculatorControl extends AbCalculatorControl {
         document
             .querySelectorAll(tecladoSelectors.btnKeys)
             .forEach((button) => {
-                button.addEventListener(Events.click, (event: Event) => {
+                button.addEventListener(EEvents.click, (event: Event) => {
                     const target = event.target as HTMLButtonElement
                     this.stopRender(this.renderInterval)
                     this.clickSound(this.isMuted)
@@ -37,16 +33,16 @@ export default class CalculatorControl extends AbCalculatorControl {
                     if (this.operations.includes(target.id)) {
                         this.addOperator(target.dataset.valor ?? '')
                     }
-                    if (target.id === NumFormatting.dot.toString()) {
+                    if (target.id === ENumFormatting.dot.toString()) {
                         this.addDot(target.dataset.valor ?? '')
                     }
-                    if (target.id === Actions.clean.toString()) {
+                    if (target.id === EActions.clean.toString()) {
                         this.clearAll()
                     }
-                    if (target.id === Actions.equal.toString()) {
+                    if (target.id === EActions.equal.toString()) {
                         this.calculate()
                     }
-                    if (target.id === Actions.undo.toString()) {
+                    if (target.id === EActions.undo.toString()) {
                         this.clearLastEntry()
                         this.renderInterval = this.renderWaitNewEntry()
                     }
@@ -84,13 +80,14 @@ export default class CalculatorControl extends AbCalculatorControl {
     }
 
     renderWaitNewEntry(): NodeJS.Timeout {
-        let visible = true
+        let isVisible = true
+        const secTime = 500
         const icon1 = '_'
         const icon2 = ' '
         const waitNewEntry = setInterval(() => {
-            this.display.content = visible ? icon1 : icon2
-            visible = !visible
-        }, 500)
+            this.display.content = isVisible ? icon1 : icon2
+            isVisible = !isVisible
+        }, secTime)
         return waitNewEntry
     }
 
@@ -124,7 +121,7 @@ export default class CalculatorControl extends AbCalculatorControl {
         } else {
             if (
                 this.ops.lastPosition.toString() ===
-                OperationsSymbols.dot.toString()
+                EOperationsSymbols.dot.toString()
             ) {
                 this.ops.clear()
             }

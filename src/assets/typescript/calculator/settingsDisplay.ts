@@ -1,13 +1,9 @@
 import { AbSettingsDisplay } from '../abstract/abSettingsDisplay'
-import { Legends } from '../enums/legends'
+import { ELegends } from '../enums/elegends'
 import { volumeIcon } from '../resources/resources'
 import { displaySelectors } from '../selectors/domSelectors'
 
 export default class SettingsDisplay extends AbSettingsDisplay {
-    constructor() {
-        super()
-    }
-
     set soundIcon(mute: boolean) {
         const soundElement = this.settingsElement?.querySelector(
             displaySelectors.soundIconEl
@@ -16,10 +12,10 @@ export default class SettingsDisplay extends AbSettingsDisplay {
         if (soundElement !== null && soundElement !== undefined) {
             if (mute) {
                 soundElement.setAttribute(attr, volumeIcon.on)
-                this.legend = Legends.soundOn
+                this.legend = ELegends.soundOn
             } else {
                 soundElement.setAttribute(attr, volumeIcon.off)
-                this.legend = Legends.soundOff
+                this.legend = ELegends.soundOff
             }
         }
     }

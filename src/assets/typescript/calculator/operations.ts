@@ -1,7 +1,7 @@
 import { defaultContent } from '../abstract/abDisplay'
 import { AbOperations } from '../abstract/abOperations'
-import { Actions } from '../enums/actions'
-import { OperationsSymbols } from '../enums/operatorsSymbols'
+import { EActions } from '../enums/eactions'
+import { EOperationsSymbols } from '../enums/eoperatorsSymbols'
 
 export default class Operations extends AbOperations {
     addValues(value: string): number {
@@ -36,13 +36,14 @@ export default class Operations extends AbOperations {
     }
 
     percentage(): string {
+        const calVal = 0.01
         const values = this.ops.join('')
         const lastValue = values.substring(
-            values.search(OperationsSymbols.percentage) + 1
+            values.search(EOperationsSymbols.percentage) + 1
         )
         const newValue = values.replace(
-            `${OperationsSymbols.percentage}${lastValue}`,
-            `${OperationsSymbols.mult}${Number(lastValue) * 0.01}`
+            `${EOperationsSymbols.percentage}${lastValue}`,
+            `${EOperationsSymbols.mult}${Number(lastValue) * calVal}`
         )
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
         const valResult: string = eval(newValue).toString()
@@ -54,12 +55,12 @@ export default class Operations extends AbOperations {
         const values = this.ops.join('')
         try {
             // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-            results = values.includes(OperationsSymbols.percentage)
+            results = values.includes(EOperationsSymbols.percentage)
                 ? this.percentage()
                 : // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
                   eval(values).toString()
         } catch {
-            results = Actions.error
+            results = EActions.error
         }
         return results
     }

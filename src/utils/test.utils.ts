@@ -1,6 +1,9 @@
 export class TestUtils {
     protected static checkResultsLength(value: string): string {
-        return value.length > 12 ? value.substring(0, 12) : value.toString()
+        const valLength = 12
+        return value.length > valLength
+            ? value.substring(0, valLength)
+            : value.toString()
     }
 
     static calculateExpectedResults(value: string): string {

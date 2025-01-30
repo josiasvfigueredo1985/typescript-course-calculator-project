@@ -1,4 +1,4 @@
-export enum Legends {
+export enum ELegends {
     soundOn = 'sound on',
     soundOff = 'sound off',
 }
