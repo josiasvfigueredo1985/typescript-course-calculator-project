@@ -18,7 +18,7 @@ export default class CalculatorControl extends AbCalculatorControl {
         document
             .querySelectorAll(acoesSelectors.muteButton)
             .forEach((button) => {
-                button.addEventListener(Events.click, async () => {
+                button.addEventListener(Events.click, () => {
                     this.isMuted = !this.isMuted // Alterna o estado de mudo
                     settings.soundIcon = this.isMuted
                 })
@@ -27,19 +27,26 @@ export default class CalculatorControl extends AbCalculatorControl {
         document
             .querySelectorAll(tecladoSelectors.btnKeys)
             .forEach((button) => {
-                button.addEventListener(Events.click, async (event: Event) => {
+                button.addEventListener(Events.click, (event: Event) => {
                     const target = event.target as HTMLButtonElement
                     this.stopRender(this.renderInterval)
                     this.clickSound(this.isMuted)
-                    this.keyNumbers.includes(target.id) &&
+                    if (this.keyNumbers.includes(target.id)) {
                         this.addNumber(Number(target.dataset.valor))
-                    this.operations.includes(target.id) &&
+                    }
+                    if (this.operations.includes(target.id)) {
                         this.addOperator(target.dataset.valor ?? '')
-                    target.id === NumFormatting.dot &&
+                    }
+                    if (target.id === NumFormatting.dot.toString()) {
                         this.addDot(target.dataset.valor ?? '')
-                    target.id === Actions.clean && this.clearAll()
-                    target.id === Actions.equal && this.calculate()
-                    if (target.id === Actions.undo) {
+                    }
+                    if (target.id === Actions.clean.toString()) {
+                        this.clearAll()
+                    }
+                    if (target.id === Actions.equal.toString()) {
+                        this.calculate()
+                    }
+                    if (target.id === Actions.undo.toString()) {
                         this.clearLastEntry()
                         this.renderInterval = this.renderWaitNewEntry()
                     }
@@ -95,7 +102,9 @@ export default class CalculatorControl extends AbCalculatorControl {
 
     clickSound(mute: boolean): void {
         const audio = new Audio(click)
-        mute && audio.play()
+        if (mute) {
+            void audio.play()
+        }
     }
 
     clearAll(): void {
@@ -113,7 +122,10 @@ export default class CalculatorControl extends AbCalculatorControl {
             const value = this.ops.lastPosition.toString() + dot
             this.ops.lastPosition = value.toString()
         } else {
-            if (this.ops.lastPosition.toString() === OperationsSymbols.dot) {
+            if (
+                this.ops.lastPosition.toString() ===
+                OperationsSymbols.dot.toString()
+            ) {
                 this.ops.clear()
             }
             this.addOps(dot)

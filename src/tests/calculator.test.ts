@@ -43,7 +43,7 @@ describe('Calculator - Calculate function', () => {
         calculator.calculate()
         const result = calculator.getResults()
         const value = (rn1 / rn2).toString()
-        let expected = TestUtils.calculateExpectedResults(value)
+        const expected = TestUtils.calculateExpectedResults(value)
         expect(result).toBe(expected)
     })
 })

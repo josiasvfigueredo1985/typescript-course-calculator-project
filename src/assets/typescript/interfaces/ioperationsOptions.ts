@@ -1,3 +1,3 @@
 export interface IOperationsOptions {
-    onCalculation: any
+    onCalculation: (args: string) => void
 }

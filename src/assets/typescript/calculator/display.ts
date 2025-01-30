@@ -10,7 +10,7 @@ export default class Display extends AbDisplay {
 
     errorSound(): void {
         const audio = new Audio(error)
-        audio.play()
+        void audio.play()
     }
 
     get content(): string {
@@ -26,7 +26,9 @@ export default class Display extends AbDisplay {
                 value.length > displayLengthLimit
                     ? Actions.error
                     : value.replace('.', ',')
-            value.length > displayLengthLimit && this.errorSound()
+            if (value.length > displayLengthLimit) {
+                this.errorSound()
+            }
         }
     }
 }

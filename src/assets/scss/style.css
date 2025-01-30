@@ -10,11 +10,9 @@
     align-items: center;
     flex-direction: column;
 }
-
 #calculadora > img {
     margin: 20px;
 }
-
 #tela {
     width: 340px;
     height: 105px;
@@ -30,12 +28,10 @@
     justify-content: center;
     align-items: center;
 }
-
 #brilho {
     position: absolute;
     z-index: 1;
 }
-
 #display {
     width: 320px;
     height: 85px;
@@ -49,11 +45,9 @@
     flex-direction: column;
     font-family: 'Digital', sans-serif;
 }
-
 #display div {
     display: flex;
 }
-
 #display #datetime {
     position: absolute;
     width: 100%;
@@ -62,11 +56,9 @@
     display: flex;
     justify-content: space-between;
 }
-
 #display #datetime img {
     margin-left: 5px;
 }
-
 #display #values {
     position: absolute;
     bottom: 0;
@@ -78,18 +70,15 @@
     text-align: right;
     letter-spacing: 2px;
 }
-
 #teclado {
     width: 340px;
     height: 390px;
     display: grid;
     margin-top: 10px;
-    margin-bottom: 5px;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(6, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     grid-gap: 10px;
 }
-
 #teclado button {
     background: linear-gradient(
         90.39deg,
@@ -103,7 +92,6 @@
     outline: none;
     cursor: pointer;
 }
-
 #teclado button:hover {
     background: linear-gradient(
         90.39deg,
@@ -111,11 +99,9 @@
         rgba(94.75, 94.75, 94.75, 0.9) 99.63%
     );
 }
-
 #teclado button:active {
     background: linear-gradient(90.39deg, #525252 0.3%, #525252 99.63%);
 }
-
 #teclado button.orange {
     background: linear-gradient(
         90.39deg,
@@ -124,7 +110,6 @@
     );
     border: 2px solid rgb(216, 94.2222222222, 0);
 }
-
 #teclado button.orange:hover {
     background: linear-gradient(
         90.39deg,
@@ -132,34 +117,28 @@
         rgba(255, 132.3765432099, 37.5, 0.9) 99.63%
     );
 }
-
 #teclado button.orange:active {
     background: linear-gradient(90.39deg, #ff760c 0.3%, #ff760c 99.63%);
 }
-
 #teclado #adicao {
     grid-column-start: 4;
     grid-column-end: 4;
     grid-row-start: 4;
     grid-row-end: 6;
 }
-
 #teclado #audio-btn {
     grid-column-start: 4;
     grid-column-end: 4;
-    grid-row-start: 1;
-    grid-row-end: 1;
+    grid-row-start: 5;
+    grid-row-end: 5;
 }
-
 @font-face {
     font-family: 'Digital';
     src: url('../fonts/digital-7.ttf') format('truetype');
 }
-
 * {
     box-sizing: border-box;
 }
-
 body {
     display: flex;
     justify-content: center;
@@ -168,6 +147,4 @@ body {
     height: 100vh;
     font-family: sans-serif;
     color: #333;
-}
-
-/*# sourceMappingURL=style.css.map */
+} /*# sourceMappingURL=style.css.map */

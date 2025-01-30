@@ -2,7 +2,7 @@ import { IOperations } from '../interfaces/ioperations'
 import { IOperationsOptions } from '../interfaces/ioperationsOptions'
 
 export abstract class AbOperations implements IOperations {
-    protected onCalculation: any
+    protected onCalculation: (args: string) => void
 
     constructor(
         opts: IOperationsOptions,
