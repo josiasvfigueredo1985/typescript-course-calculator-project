@@ -31,9 +31,7 @@
     },
     "typeRoots": ["./node_modules/@types", "@types"],
     "include": [
-        "src/**/*", // Includes all TypeScript files in the src folder for compilation
-        "**/*.config.mjs",
-        "**/*.config.ts"
+        "src/**/**/*" // Includes all TypeScript files in the src folder for compilation
     ],
     "exclude": [
         "node_modules", // Excludes the node_modules folder from compilation
