@@ -1,9 +1,9 @@
-@use "util";
-@use "calculadora";
+@use 'util';
+@use 'calculadora';
 
 @font-face {
-    font-family: "Digital";
-    src: url("../fonts/digital-7.ttf") format("truetype");
+    font-family: 'Digital';
+    src: url('../fonts/digital-7.ttf') format('truetype');
 }
 
 * {

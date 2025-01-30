@@ -1,4 +1,4 @@
-import CalculatorControl from "./calculator/calculatorControl"
+import CalculatorControl from './calculator/calculatorControl'
 
 console.log('Starting the project')
 

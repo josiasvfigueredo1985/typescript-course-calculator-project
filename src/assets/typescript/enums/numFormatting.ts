@@ -1,3 +1,3 @@
 export enum NumFormatting {
-    dot = 'ponto'
+    dot = 'ponto',
 }

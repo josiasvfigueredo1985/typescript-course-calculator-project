@@ -1,5 +1,5 @@
-import { IOperations } from "../interfaces/ioperations";
-import { IOperationsOptions } from "../interfaces/ioperationsOptions";
+import { IOperations } from '../interfaces/ioperations'
+import { IOperationsOptions } from '../interfaces/ioperationsOptions'
 
 export abstract class AbOperations implements IOperations {
     protected onCalculation: any
@@ -20,5 +20,4 @@ export abstract class AbOperations implements IOperations {
     abstract get lastPosition(): string
     abstract set lastPosition(value: string)
     abstract get length(): number
-
 }

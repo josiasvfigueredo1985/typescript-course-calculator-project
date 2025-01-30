@@ -18,9 +18,9 @@ export const displaySelectors = {
 }
 
 export const acoesSelectors = {
-    muteButton: `${acoes} #sound-btn`
+    muteButton: `${acoes} #sound-btn`,
 }
 
 export const tecladoSelectors = {
-    btnKeys: `${teclado} button`
+    btnKeys: `${teclado} button`,
 }

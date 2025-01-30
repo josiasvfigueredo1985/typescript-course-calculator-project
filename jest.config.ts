@@ -1,4 +1,4 @@
-import type { Config } from 'jest';
+import type { Config } from 'jest'
 
 const config: Config = {
     verbose: true,
@@ -9,8 +9,9 @@ const config: Config = {
     testMatch: ['**/*.test.ts'],
     moduleNameMapper: {
         '\\.(css|less|scss)$': 'identity-obj-proxy', // Para arquivos CSS
-        '\\.(jpg|jpeg|png|gif|svg|mp3|wav)$': '<rootDir>/src/__mocks__/fileMock.js', // Para arquivos de mídia
+        '\\.(jpg|jpeg|png|gif|svg|mp3|wav)$':
+            '<rootDir>/src/__mocks__/fileMock.js', // Para arquivos de mídia
     },
-};
+}
 
-export default config;
+export default config

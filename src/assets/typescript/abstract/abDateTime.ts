@@ -1,8 +1,7 @@
-import { IDateTime } from "../interfaces/idateTime";
-import { displaySelectors } from "../selectors/domSelectors";
+import { IDateTime } from '../interfaces/idateTime'
+import { displaySelectors } from '../selectors/domSelectors'
 
 export abstract class AbDateTime implements IDateTime {
-
     constructor(
         protected readonly dateElement: HTMLDivElement | null = document.querySelector(
             displaySelectors.dateEl
@@ -10,7 +9,6 @@ export abstract class AbDateTime implements IDateTime {
         protected readonly timeElement: HTMLDivElement | null = document.querySelector(
             displaySelectors.timeEl
         )
-        ,
     ) {
         this.renderDateTime()
         setInterval(() => {

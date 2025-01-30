@@ -1,46 +1,40 @@
 {
-  "ts-node": {
-    "files": true // Allows ts-node to load all files in the project
-  },
-  "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "moduleResolution": "NodeNext",
-    "module": "NodeNext", // Specifies the module system to use (CommonJS is common in Node.js)
-    "target": "ESNEXT", // Sets the version of ECMAScript the code should be compatible with (from ES2023)
-    "allowJs": true, // Allows JavaScript files to be part of your TypeScript project
-    "sourceMap": true, // Generates source map files for easier debugging
-    "outDir": "dist", // Output directory for compiled files
-    "rootDir": "./src", // Root directory for input files
-    /* Decorators Context */
-    "useDefineForClassFields": false, // When set to false, allows the compiler to use the previous behavior for class field definitions, enabling better compatibility with decorators.
-    "experimentalDecorators": true, // Enables the use of decorators, allowing you to annotate classes and methods.
-    "emitDecoratorMetadata": true,
-    //"allowImportingTsExtensions": true, // Emits design-type metadata for decorators, useful for libraries and frameworks that rely on reflection to determine types at runtime.
-    "noEmit": false, // Prevents the compiler from emitting files
-    /* --- */
-    "removeComments": true, // Removes comments from output files
-    "strict": true, // Enables all strict type-checking options
-    "noImplicitAny": false, // Raises errors for declarations with an implied 'any' type
-    "esModuleInterop": true, // Enables interoperability between CommonJS and ES modules
-    "lib": [
-      "ESNext",
-      "DOM"
-    ], // Specifies which libraries should be included (from ESNext)
-    "forceConsistentCasingInFileNames": true, // Ensures that casing is consistent in imports
-    "skipLibCheck": true, // Skips type checking of declaration files (.d.ts)
-    "checkJs": true, // Allows type checking in JavaScript files
-    "noLib": false, // Does not omit default libraries; should generally be false
-    "allowUnreachableCode": false, // Raises errors for unreachable code
-  },
-  "typeRoots": [
-    "./node_modules/@types",
-    "@types"
-  ],
-  "include": [
-    "src/**/*", // Includes all TypeScript files in the src folder for compilation
-  ],
-  "exclude": [
-    "node_modules", // Excludes the node_modules folder from compilation
-    "dist" // Excludes the dist folder from compilation
-  ]
+    "ts-node": {
+        "files": true // Allows ts-node to load all files in the project
+    },
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "moduleResolution": "NodeNext",
+        "module": "NodeNext", // Specifies the module system to use (CommonJS is common in Node.js)
+        "target": "ESNEXT", // Sets the version of ECMAScript the code should be compatible with (from ES2023)
+        "allowJs": true, // Allows JavaScript files to be part of your TypeScript project
+        "sourceMap": true, // Generates source map files for easier debugging
+        "outDir": "dist", // Output directory for compiled files
+        "rootDir": "./src", // Root directory for input files
+        /* Decorators Context */
+        "useDefineForClassFields": false, // When set to false, allows the compiler to use the previous behavior for class field definitions, enabling better compatibility with decorators.
+        "experimentalDecorators": true, // Enables the use of decorators, allowing you to annotate classes and methods.
+        "emitDecoratorMetadata": true,
+        //"allowImportingTsExtensions": true, // Emits design-type metadata for decorators, useful for libraries and frameworks that rely on reflection to determine types at runtime.
+        "noEmit": false, // Prevents the compiler from emitting files
+        /* --- */
+        "removeComments": true, // Removes comments from output files
+        "strict": true, // Enables all strict type-checking options
+        "noImplicitAny": false, // Raises errors for declarations with an implied 'any' type
+        "esModuleInterop": true, // Enables interoperability between CommonJS and ES modules
+        "lib": ["ESNext", "DOM"], // Specifies which libraries should be included (from ESNext)
+        "forceConsistentCasingInFileNames": true, // Ensures that casing is consistent in imports
+        "skipLibCheck": true, // Skips type checking of declaration files (.d.ts)
+        "checkJs": true, // Allows type checking in JavaScript files
+        "noLib": false, // Does not omit default libraries; should generally be false
+        "allowUnreachableCode": false // Raises errors for unreachable code
+    },
+    "typeRoots": ["./node_modules/@types", "@types"],
+    "include": [
+        "src/**/*" // Includes all TypeScript files in the src folder for compilation
+    ],
+    "exclude": [
+        "node_modules", // Excludes the node_modules folder from compilation
+        "dist" // Excludes the dist folder from compilation
+    ]
 }

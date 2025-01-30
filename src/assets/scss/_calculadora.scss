@@ -1,7 +1,7 @@
-@use "util";
-@use "botao";
+@use 'util';
+@use 'botao';
 
-$corCalculadora: #E6E6E6;
+$corCalculadora: #e6e6e6;
 $largura: 400px;
 $altura: 600px;
 
@@ -9,13 +9,15 @@ $altura: 600px;
     width: $largura;
     height: $altura;
     background: $corCalculadora;
-    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.25), inset 0px 0px 10px rgba(146, 146, 146, 0.5);
+    box-shadow:
+        5px 10px 10px rgba(0, 0, 0, 0.25),
+        inset 0px 0px 10px rgba(146, 146, 146, 0.5);
     border-radius: 25px;
     display: flex;
     align-items: center;
     flex-direction: column;
 
-    >img {
+    > img {
         margin: 20px;
     }
 }
@@ -23,7 +25,12 @@ $altura: 600px;
 #tela {
     width: $largura - 60;
     height: 105px;
-    background: linear-gradient(180deg, $corCalculadora 0%, $corCalculadora 0.01%, $corCalculadora 100%);
+    background: linear-gradient(
+        180deg,
+        $corCalculadora 0%,
+        $corCalculadora 0.01%,
+        $corCalculadora 100%
+    );
     box-shadow: inset 0px 2px 10px rgba(59, 59, 59, 0.2);
     border-radius: 20px;
     @include util.flex-center;
@@ -38,14 +45,14 @@ $altura: 600px;
     width: $largura - 80;
     height: 85px;
     position: relative;
-    background: #DDE0CB;
-    border: 2px solid #888A7B;
+    background: #dde0cb;
+    border: 2px solid #888a7b;
     box-sizing: border-box;
     box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    font-family: "Digital", sans-serif;
+    font-family: 'Digital', sans-serif;
 
     div {
         display: flex;
@@ -89,13 +96,13 @@ $altura: 600px;
     button {
         @include botao.botaoCor(#525252);
         border-radius: 10px;
-        color: #FFF;
+        color: #fff;
         font-size: 32px;
         outline: none;
         cursor: pointer;
 
         &.orange {
-            @include botao.botaoCor(#FF760C);
+            @include botao.botaoCor(#ff760c);
         }
     }
 

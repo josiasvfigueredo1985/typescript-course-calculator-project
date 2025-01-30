@@ -26,6 +26,6 @@
             "name": "Run Calculator Application",
             "request": "launch",
             "type": "node-terminal"
-        },
+        }
     ]
 }
