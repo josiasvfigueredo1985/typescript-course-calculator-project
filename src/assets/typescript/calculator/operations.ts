@@ -44,7 +44,8 @@ export default class Operations extends AbOperations {
             `${OperationsSymbols.percentage}${lastValue}`,
             `${OperationsSymbols.mult}${Number(lastValue) * 0.01}`
         )
-        const valResult = <string>eval(newValue)
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+        const valResult: string = eval(newValue).toString()
         return valResult
     }
 
@@ -52,9 +53,11 @@ export default class Operations extends AbOperations {
         let results: string
         const values = this.ops.join('')
         try {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
             results = values.includes(OperationsSymbols.percentage)
                 ? this.percentage()
-                : <string>eval(values)
+                : // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+                  eval(values).toString()
         } catch {
             results = Actions.error
         }

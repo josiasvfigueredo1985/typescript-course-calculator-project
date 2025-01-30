@@ -34,7 +34,6 @@ export default tseslint.config(
             '@typescript-eslint/no-extra-non-null-assertion': 'error',
             '@typescript-eslint/no-floating-promises': 'error',
             '@typescript-eslint/no-for-in-array': 'error',
-            'no-implied-eval': 'off',
             '@typescript-eslint/no-implied-eval': 'error',
             '@typescript-eslint/no-misused-new': 'error',
             '@typescript-eslint/no-misused-promises': 'error',
