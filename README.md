@@ -7,9 +7,8 @@
 - Auto bundling and running: When you perform any of execution options, the current typescript file will be bundled to a `js` file in the `dist/` folder, which will be created on the first run and overwrite the previous file on the following run and also will run the `js` file in the sequence;
 - Linter: **\*EsLint** has some settings to help you to avoid common errors when writing code and also will suggest good practices to follow;
 - Husky: Set to run lint before a commit, others commands can be added according your necessity
-- Basic typescript examples: These examples help to understand how typescript works, considering that is a beginner level project.
-
-**_\*Please consider that all disabled rules are used just for example purposes, all the rules set on EsLint are updated and according with good practices for TypeScript, so avoid using the examples with disabled EsLint rules_**.
+- Calculator application developed by HCode and enhanced by me, it runs and open automatically, use 'Run Calculator Application' on Run and Debug menu on VS Code
+- Unit tests using Jest, these tests are supposed to test the main function of the application. it also used by by pre-commit configs that prevents broken code to be commited to main branch
 
 ## Execution Options
 
